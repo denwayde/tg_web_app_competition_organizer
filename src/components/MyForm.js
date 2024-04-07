@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 
 
 function MyForm() {
-  let tg = window.Telegram.WebApp
+  //let tg = window.Telegram.WebApp
   return (
     <Container>
 
