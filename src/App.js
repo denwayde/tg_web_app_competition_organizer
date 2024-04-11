@@ -1,4 +1,11 @@
 import './App.css';
+
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+
+import 'primeicons/primeicons.css';
+
+import 'primeflex/primeflex.css'
+
 import MyForm from './components/MyForm';
 
 
