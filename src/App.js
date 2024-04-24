@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route index element={<MyForm/>}/>
-        <Route path='challenge' element={<ChallengeOpponent/>}/>
+        <Route path={'challenge'} element={<ChallengeOpponent/>}/>
       </Routes>
       
     </div>
