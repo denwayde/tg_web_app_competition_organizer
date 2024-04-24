@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputText } from 'primereact/inputtext';
-import { Button } from 'primereact/button';
+//import { Button } from 'primereact/button';
 import OrganizationOption from './OrganizationOption'
 import GameOptions from './GameOptions';
 
