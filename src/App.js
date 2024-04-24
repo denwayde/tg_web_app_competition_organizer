@@ -5,7 +5,8 @@ import 'primeflex/primeflex.css'
 import MyForm from './components/MyForm';
 import {useTelegram} from './hooks/useTelegram'
 import { useEffect } from 'react';
-
+import {Route, Routes} from 'react-router-dom'
+import ChallengeOpponent from './components/ChallengeOpponent';
 
 
 function App() {
@@ -15,7 +16,11 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <MyForm/>
+      <Routes>
+        <Route index element={<MyForm/>}/>
+        <Route path='challenge' element={<ChallengeOpponent/>}/>
+      </Routes>
+      
     </div>
   );
 }
