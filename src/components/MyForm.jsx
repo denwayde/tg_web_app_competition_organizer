@@ -13,8 +13,8 @@ function MyForm() {
       <div className="p-inputgroup mt-3">
         <InputText placeholder="Введите ваше ФИ" />
       </div>
-      <GameOptions/>
       <OrganizationOption/>
+      <GameOptions/>
   </div>
   );
 }
