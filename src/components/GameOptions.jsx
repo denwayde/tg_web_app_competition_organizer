@@ -1,28 +1,14 @@
 
 import React, { useState } from "react";
-import { Dropdown } from 'primereact/dropdown';
 import { Checkbox } from "primereact/checkbox";
 
 export default function GameOptions() {
-    // const [selectedCity, setSelectedCity] = useState(null);
-    // const cities = [
-    //     { name: 'Рандом', code: 'NY' },
-    //     { name: 'Чемпионат', code: 'RM' },
-    //     { name: 'Вызов соперника', code: 'LDN' }
-    // ];
-
-    // return (
-    //     <div className="p-inputgroup mt-3">
-    //         <Dropdown value={selectedCity} onChange={(e) => setSelectedCity(e.value)} options={cities} optionLabel="name" 
-    //             placeholder="Выберите режим игры" className="w-full md:w-14rem" checkmark={true} highlightOnSelect={false} />
-    //     </div>
-    // )
     const categories = [
         { name: 'Рандом', key: 'A', disabled: false },
         { name: 'Вызов', key: 'M', disabled: false },
         { name: 'Чемпионат', key: 'P', disabled: true },
     ];
-    const [selectedCategories, setSelectedCategories] = useState([categories[1]]);
+    const [selectedCategories, setSelectedCategories] = useState([]);
 
     const onCategoryChange = (e) => {
         let _selectedCategories = [...selectedCategories];
