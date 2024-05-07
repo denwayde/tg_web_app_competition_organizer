@@ -8,7 +8,7 @@ function MyForm() {
   //let tg = window.Telegram.WebApp
   
   return (
-    <div>
+    <div className='container'>
       <NameInput/>
       <OrganizationOption/>
       <GameOptions/>

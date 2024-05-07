@@ -7,6 +7,7 @@ import { addLocale } from 'primereact/api';
 
 function ChallengeOpponent() {
     const [date, setDate] = useState(null);
+    // const[name, setName] = useState('')
     let sdate = date?.toLocaleDateString('ru-RU')
     let stime = date?.toLocaleTimeString('ru-RU')
      
@@ -26,7 +27,7 @@ function ChallengeOpponent() {
     });
     
     return (
-        <>
+        <div className="container">
             <div className="p-inputgroup mt-3">
                 <InputText placeholder="Введите имя вызываемого" />
                 <Button icon="pi pi-search" className="p-button-warning" />
@@ -34,7 +35,7 @@ function ChallengeOpponent() {
             <div className="p-inputgroup mt-3">
                 <Calendar placeholder="Введите дату игры" value={date} onChange={(e) => setDate(e.value)} showTime hourFormat="24" locale="ru" dateFormat="dd/mm/yy" showIcon={true} showWeek={false} minDate={new Date()} stepMinute={10}/>
             </div>
-        </>
+        </div>
     )
 }
 
