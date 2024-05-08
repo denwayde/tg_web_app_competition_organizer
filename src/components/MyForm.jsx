@@ -3,6 +3,7 @@ import React from 'react';
 import OrganizationOption from './OrganizationOption'
 import GameOptions from './GameOptions';
 import NameInput from './NameInput';
+import { Link } from "react-router-dom";
 
 function MyForm() {
   //let tg = window.Telegram.WebApp
@@ -12,7 +13,10 @@ function MyForm() {
       <NameInput/>
       <OrganizationOption/>
       <GameOptions/>
-  </div>
+      <div className='create_organization'>
+        <small>Нет вашей организации? <Link to='/create_organization'>Создайте ее</Link></small>
+      </div>
+    </div>
   );
 }
 
