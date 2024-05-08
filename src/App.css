@@ -6,3 +6,12 @@ body{
     width: 98%;
     margin: 10px  auto!important;
 }
+
+.invalidInput {
+    border-color: #d40629!important;
+    color: #d40629;
+}
+
+.invalitLabel {
+    color: #d40629;
+}

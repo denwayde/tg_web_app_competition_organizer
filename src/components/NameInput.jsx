@@ -1,35 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { InputText } from 'primereact/inputtext';
-
+import { FloatLabel } from "primereact/floatlabel";
 
 function NameInput(){
-    const [prevValue, setPrevValue] = useState('')
-    
-    let pattern = /^(?!-)(?!.*-$)[а-яА-Я]+&/
-    function validateInput(event, validatePattern){
-        const target = event.target;
-        //console.log(valpat)
-        if (validatePattern) {
-            if (target.value.length > 0) {
-                setPrevValue(target.value);
-            }
-
-            // key was OK so do nothing
-            return;
+    const [value, setValue] = useState('')
+    const [labelValue, setLabelValue] = useState('Введите ФИ')
+    const [isInvalid, setIsInvalid] = useState(false)
+    //let pattern = /^(?!-)(?!.*-$)[а-яА-Я]+$/
+    function validateInput(e){
+        if(/^(?!-)(?!.*-$)[а-яА-Я\s-]+$/.test(e.target.value)){
+            setValue(e.target.value)
+            setIsInvalid(false)
+            setLabelValue('Введите ФИ')
         }
-
-        // key made the whole input not valid so block this key
-        //  Compare current value with previous value
-        if (target.value.length > 0) {
-            // Set previous valid value
-            target.value = prevValue;
+        else if(/^[a-zA-Z]+$/.test(e.target.value)){
+            setIsInvalid(true)
+            setLabelValue('Нужно писать на русском')
+        }
+        else if(e.target.value === ''){
+            setIsInvalid(false)
+            setLabelValue('Введите ФИ')
+            setValue(e.target.value)
+        }
+        else {
+            setIsInvalid(true)
+            setLabelValue('Не валидное значение')
+            //console.log("невалид")
         }
     }
-    
+    function focusOut(e){
+        if(e.target.value!==''){
+            setLabelValue('')
+        }
+    }
     return (
         
-            <div className="p-inputgroup mt-3">
-                <InputText placeholder="Введите ФИ" keyfilter={/^(?!-)(?!.*-$)(?!\s)(?!.*\s$)[а-яА-Я\s\-]+$/} validateOnly onInput={validateInput}/>
+            <div className="p-inputgroup mt-6">
+                {/* <InputText placeholder="Введите ФИ" keyfilter={/^(?!-)(?!.*-$)[а-яА-Я\s\-]+$/} validateOnly onInput={validateInput}/> */}
+                <FloatLabel>
+                    <InputText id="username" value={value} onChange={validateInput} className={isInvalid && 'invalidInput'} onBlur={focusOut}/>
+                    <label htmlFor="username" className={isInvalid && 'invalitLabel'}>{labelValue}</label>
+                </FloatLabel>
             </div>
             
     )
