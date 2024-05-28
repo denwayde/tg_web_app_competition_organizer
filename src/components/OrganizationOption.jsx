@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { Dropdown } from 'primereact/dropdown';
-
+import { FloatLabel } from "primereact/floatlabel";
 
 export default function OrganizationOption() {
     
@@ -14,8 +14,11 @@ export default function OrganizationOption() {
 
     return (
         <div>
-            <div className="p-inputgroup mt-3 mb-1">
-                <Dropdown value={selectedCountry} onChange={(e) => setSelectedCountry(e.value)} options={countries} optionLabel="name" placeholder="Выберите вашу организацию" filter  className="w-full md:w-14rem" />
+            <div className="p-inputgroup mt-5 mb-1">
+            <FloatLabel>
+                <Dropdown value={selectedCountry} onChange={(e) => setSelectedCountry(e.value)} options={countries} optionLabel="name" filter  className="w-full md:w-14rem" />
+                <label htmlFor="ms-cities">Выберите вашу организацию</label>
+            </FloatLabel>
             </div>
         </div>
     )
