@@ -7,6 +7,7 @@ import {useTelegram} from './hooks/useTelegram'
 import { useEffect } from 'react';
 import {Route, Routes} from 'react-router-dom'
 import ChallengeOpponent from './components/ChallengeOpponent';
+import CreateOrganization from './components/CreateOrganization';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route index element={<MyForm/>}/>
         <Route path={'challenge'} element={<ChallengeOpponent/>}/>
+        <Route path={'create_organization'} element = {<CreateOrganization/>} />
       </Routes>
       
     </div>

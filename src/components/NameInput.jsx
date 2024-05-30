@@ -39,7 +39,7 @@ function NameInput(){
                 {/* <InputText placeholder="Введите ФИ" keyfilter={/^(?!-)(?!.*-$)[а-яА-Я\s\-]+$/} validateOnly onInput={validateInput}/> */}
                 <FloatLabel>
                     <InputText id="username" value={value} onChange={validateInput} className={isInvalid && 'invalidInput'} onBlur={focusOut}/>
-                    <label htmlFor="username" className={isInvalid && 'invalitLabel'}>{labelValue}</label>
+                    <label htmlFor="username" className={isInvalid ? 'invalitLabel' : ''}>{labelValue}</label>
                 </FloatLabel>
             </div>
             
