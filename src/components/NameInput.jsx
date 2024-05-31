@@ -1,12 +1,21 @@
-import React, {useState } from "react";
+import React, {useEffect, useState } from "react";
 import { InputText } from 'primereact/inputtext';
 import { FloatLabel } from "primereact/floatlabel";
 
-function NameInput(){
+function NameInput({getInputValueForForm}){
     const [value, setValue] = useState('')
     const [labelValue, setLabelValue] = useState('Введите ФИ')
     const [isInvalid, setIsInvalid] = useState(false)
     //let pattern = /^(?!-)(?!.*-$)[а-яА-Я]+$/
+    
+    useEffect(()=>{
+        sendInputValueToForm(value)
+    },[value])
+
+    function sendInputValueToForm(v){
+        getInputValueForForm(v)
+    }
+
     function validateInput(e){
         if(/^(?!-)(?!.*-$)[а-яА-Я\s-]+$/.test(e.target.value)){
             setValue(e.target.value)
@@ -28,6 +37,7 @@ function NameInput(){
             //console.log("невалид")
         }
     }
+    
     function focusOut(e){
         if(e.target.value!==''){
             setLabelValue('')

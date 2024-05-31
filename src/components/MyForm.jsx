@@ -7,12 +7,15 @@ import { Link } from "react-router-dom";
 
 function MyForm() {
   //let tg = window.Telegram.WebApp
+  function getInputValueForForm(InputValue){
+    return InputValue
+  }
   
   return (
     <div className='container'>
-      <NameInput/>
-      <OrganizationOption/>
-      <GameOptions/>
+      <NameInput getInputValueForForm = {getInputValueForForm}/>
+      <OrganizationOption />
+      <GameOptions />
       <div className='create_organization'>
         <small>Нет вашей организации? <Link to='/create_organization'>Создайте ее</Link></small>
       </div>
