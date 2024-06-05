@@ -10,7 +10,9 @@ function MyForm() {
   function getInputValueForForm(InputValue){
     return InputValue
   }
-  
+  useEffect(()=>{
+    
+  },[])
   return (
     <div className='container'>
       <NameInput getInputValueForForm = {getInputValueForForm}/>
