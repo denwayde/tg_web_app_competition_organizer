@@ -2,7 +2,9 @@ import React, {useEffect, useState } from "react";
 import { InputText } from 'primereact/inputtext';
 import { FloatLabel } from "primereact/floatlabel";
 
-function NameInput({getInputValueForForm}){
+function NameInput(props){
+    const {getInputValueForForm} = props
+    
     const [value, setValue] = useState('')
     const [labelValue, setLabelValue] = useState('Введите ФИ')
     const [isInvalid, setIsInvalid] = useState(false)
@@ -16,25 +18,26 @@ function NameInput({getInputValueForForm}){
         getInputValueForForm(v)
     }
 
+    function stateSetter(valid, label, value = undefined){
+        if(value!==undefined){
+            setValue(value)
+        }
+        setIsInvalid(valid)
+        setLabelValue(label)
+    }
+
     function validateInput(e){
         if(/^(?!-)(?!.*-$)[а-яА-Я\s-]+$/.test(e.target.value)){
-            setValue(e.target.value)
-            setIsInvalid(false)
-            setLabelValue('Введите ФИ')
+            stateSetter(false, 'Введите ФИ', e.target.value)
         }
         else if(/^[a-zA-Z]+$/.test(e.target.value)){
-            setIsInvalid(true)
-            setLabelValue('Нужно писать на русском')
+            stateSetter(true, 'Нужно писать на русском')
         }
         else if(e.target.value === ''){
-            setIsInvalid(false)
-            setLabelValue('Введите ФИ')
-            setValue(e.target.value)
+            stateSetter(false, 'Введите ФИ', e.target.value)
         }
         else {
-            setIsInvalid(true)
-            setLabelValue('Не валидное значение')
-            //console.log("невалид")
+            stateSetter(true, 'Не валидное значение')
         }
     }
     

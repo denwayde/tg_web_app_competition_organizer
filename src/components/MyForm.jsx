@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 //import { Button } from 'primereact/button';
 import OrganizationOption from './OrganizationOption'
 import GameOptions from './GameOptions';
@@ -11,7 +11,7 @@ function MyForm() {
     return InputValue
   }
   useEffect(()=>{
-    
+    console.log(getInputValueForForm)
   },[])
   return (
     <div className='container'>
