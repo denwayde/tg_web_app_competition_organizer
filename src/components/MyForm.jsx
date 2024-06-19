@@ -7,15 +7,10 @@ import { Link } from "react-router-dom";
 
 function MyForm() {
   //let tg = window.Telegram.WebApp
-  function getInputValueForForm(InputValue){
-    return InputValue
-  }
-  useEffect(()=>{
-    console.log(getInputValueForForm)
-  },[])
+  
   return (
     <div className='container'>
-      <NameInput getInputValueForForm = {getInputValueForForm}/>
+      <NameInput getInputValueForForm/>
       <OrganizationOption />
       <GameOptions />
       <div className='create_organization'>

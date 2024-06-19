@@ -1,5 +1,5 @@
 const defaultState = {
-    value: ''
+    value: 'Hello world'
 }
 export const SETVALUE = 'SETVALUE'
 
