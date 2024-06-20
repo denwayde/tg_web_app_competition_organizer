@@ -8,23 +8,16 @@ import { SETVALUE } from "../store/nameInputReducer";
 function NameInput(){
     const dispatch = useDispatch()
     const reduxValue = useSelector(state => state.inputNameReducer.value)
-
-    const [value, setValue] = useState('')
+    //const [value, setValue] = useState('')
     const [labelValue, setLabelValue] = useState('Введите ФИ')
     const [isInvalid, setIsInvalid] = useState(false)
     //let pattern = /^(?!-)(?!.*-$)[а-яА-Я]+$/
     
-    useEffect(()=>{
-        console.log(reduxValue)//Hello world
-    }, [reduxValue])
+    // useEffect(()=>{
+    //     console.log(reduxValue)//Hello world
+    // }, [reduxValue])
 
-    // function stateSetter(valid, label, value = undefined){
-    //     if(value!==undefined){
-    //         setValue(value)
-    //     }
-    //     setIsInvalid(valid)
-    //     setLabelValue(label)
-    // }
+
     function stateSetter(valid, label, value = undefined){
         if(value!==undefined){
             dispatch({

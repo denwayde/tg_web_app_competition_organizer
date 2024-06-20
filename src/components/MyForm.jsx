@@ -4,13 +4,21 @@ import OrganizationOption from './OrganizationOption'
 import GameOptions from './GameOptions';
 import NameInput from './NameInput';
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 function MyForm() {
   //let tg = window.Telegram.WebApp
+  const NameInputValue = useSelector(state => state.inputNameReducer.value)//teper tut lejit znachenie iz name input
+  // ---------------- teper nujno poluchit znachenia dlya kajdogo komponenta
+  // ---------------- i vozmojno poluchat asinchronno dannie iz servaka
   
+  // useEffect(()=>{
+  //   console.log(NameInputValue)
+  // })
+ 
   return (
     <div className='container'>
-      <NameInput getInputValueForForm/>
+      <NameInput />
       <OrganizationOption />
       <GameOptions />
       <div className='create_organization'>
