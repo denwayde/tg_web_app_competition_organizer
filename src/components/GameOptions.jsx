@@ -13,9 +13,12 @@ export default function GameOptions() {
     const dispatcher = useDispatch()
     const selectedGames = useSelector(state => state.gameChoiseReducer.selectedGames)//tut u tebya massiv vida {"name": null, "id": null,"value": [{"name": "Рандом","code": "1","description": "Бот назначит дату игры и соперника рандомно"}]}
     //v value doljen bit massiv vida [{"name": "Rome","code": "RM"}]
-
+    let gamesForValue = []
     useEffect(()=>{
         console.log(selectedGames)
+        gamesForValue = selectedGames.map(el=>el?.value[0])
+        //console.log(gamesForValue)
+        
     }, [selectedGames])
 
     const [description, setDescription] = useState('Выберите режим игры')
@@ -36,7 +39,7 @@ export default function GameOptions() {
 
         <div className="p-inputgroup mt-5">
             <FloatLabel>
-                <MultiSelect onChange={(e) => dispatcher({type: SELECT_GAMES, payload: e.target})} options={cities} optionLabel="name" className="w-full md:w-20rem" />
+                <MultiSelect value={gamesForValue} onChange={(e) => dispatcher({type: SELECT_GAMES, payload: e.target})} options={cities} optionLabel="name" className="w-full md:w-20rem" />
                 <label htmlFor="ms-cities" className={selectedGames !== null ? 'greenLabel': ''}>{description}</label>
             </FloatLabel>
         </div>

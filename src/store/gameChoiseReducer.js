@@ -1,5 +1,5 @@
 const defaultState = {
-    selectedGames: null
+    selectedGames: []
 }
 
 export const SELECT_GAMES = "SELECT_GAMES"
