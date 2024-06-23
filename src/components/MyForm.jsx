@@ -8,13 +8,17 @@ import { useSelector } from 'react-redux';
 
 function MyForm() {
   //let tg = window.Telegram.WebApp
-  const NameInputValue = useSelector(state => state.inputNameReducer.value)//teper tut lejit znachenie iz name input
-  // ---------------- teper nujno poluchit znachenia dlya kajdogo komponenta
+  const nameInputValue = useSelector(state => state.inputNameReducer.value)//teper tut lejit znachenie iz name input!!!
+  const organizationValue = useSelector(state => state.organOptionReducer.selectedCountry)
+  const gameChoiseValue = useSelector(state => state.gameChoiseReducer.selectedGames)
+  // ---------------- teper nujno poluchit znachenia dlya kajdogo komponenta!!!
   // ---------------- i vozmojno poluchat asinchronno dannie iz servaka
   
-  // useEffect(()=>{
-  //   console.log(NameInputValue)
-  // })
+  useEffect(()=>{
+    console.log(nameInputValue)
+    console.log(organizationValue)
+    console.log(gameChoiseValue)
+  })
  
   return (
     <div className='container'>
