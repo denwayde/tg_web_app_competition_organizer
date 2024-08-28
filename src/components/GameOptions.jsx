@@ -11,9 +11,6 @@ export default function GameOptions() {
     const dispatcher = useDispatch()
     const selectedGames = useSelector(state => state.gameChoiseReducer.selectedGames)
     
-//    useEffect(()=>{
-//     console.log(selectedGames)
-//    })
     const [description, setDescription] = useState('Выберите режим игры')
     
     const cities = [
